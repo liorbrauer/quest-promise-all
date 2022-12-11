@@ -1,15 +1,16 @@
-id: funneldrop_fixing_bug_pr
+id: fix_it
 learningObjectives: 
-- Fixing a bug 
+- Fixing blocking execution in JS
 hints:
-- Try to inspect the problematic view and see where it is on the screen
+- Once you understand what is blocking the requests from happening simultaneously, change the code to run in parallel to make it more performant.
+- Using javascript's `Promise.all` function could help here.
 startFlow:
   do:
   - actionId: bot_message
     params:
       person: keen
       messages:
-      - text: "OK, I think we have everything we need. Can you please **fix the code** and **open a PR**, so we can release a new version to production?"
+      - text: "OK, so we know the issue is in the frontend code.. Can you please **fix the code** and **open a PR**, so we can release a new version to production?"
         delay: 1500
 githubActions:
   frontend:

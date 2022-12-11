@@ -1,0 +1,44 @@
+id: find_the_root_cause
+learningObjectives: 
+- Use chrome's developer tools to find an issue
+hints:
+- Try opening the Network tab in Chrome's developer tools and reload the item page. See if you can spot any potential bottlenecks with the XHR requests being made.
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: keen
+      messages:
+      - text: "QA is reporting the item page has been loading slowly. They're saying it feels like the page elements are loading one-by-on. I need you to get to the bottom of it."
+        delay: 2000
+      - text: "I'd start with looking whether this seems like a frontend or a backend issue. Once you have an answer, let me know what it is?"
+        delay: 3500
+trigger:
+  type: user_message
+  params: 
+    person: keen
+  flowNode:
+    if:
+      conditions:
+      - conditionId: text_match_regex
+        params:
+          text: "${userMessageText}"
+          regex: frontend|front
+          flags: i
+      then:
+        do:
+        - actionId: bot_message
+          params:
+            person: keen
+            messages:
+            - text: Excellent find. I'll let the support team know first thing.
+              delay: 1300
+        - actionId: finish_step
+      else:
+        do:
+        - actionId: bot_message
+          params:
+            person: keen
+            messages:
+            - text: I don't think that's right. Can you check again?
+              delay: 2500

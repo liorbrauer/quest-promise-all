@@ -1,7 +1,7 @@
 # quest-template
 
 ## Quest Details 
-#### title: 
+#### title:  
 #### level: 
 #### skills:
 #### dependencies: 
