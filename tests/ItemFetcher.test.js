@@ -1,4 +1,4 @@
-jest.mock("./src/agent.js", () => {
+jest.mock("./agent.js", () => {
   async function sleep(timeInMilliseconds) {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -23,7 +23,7 @@ jest.mock("./src/agent.js", () => {
   }
 });
 
-import { getItemAndComments } from "./src/components/Item/utils/ItemFetcher";
+import { getItemAndComments } from "./components/Item/utils/ItemFetcher";
 let getItemsRequestTimestamp, getCommentsRequestTimestamp = null;
 
 test("both requests for Item and Comment are executed at the same time", async () => {
